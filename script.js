@@ -5,42 +5,41 @@ let yourAge = document.getElementById("age");
 function calculateAge() {
   let birthDate = new Date(userInput.value);
 
-  let birthDay = birthDate.getDate();
-  let birthMonth = birthDate.getMonth() + 1;
-  let birthYear = birthDate.getFullYear();
+  let d1 = birthDate.getDate();
+  let m1 = birthDate.getMonth() + 1;
+  let y1 = birthDate.getFullYear();
 
   let today = new Date();
 
-  let currentDay = today.getDate();
-  let currentMonth = today.getMonth() + 1;
-  let currentYear = today.getFullYear();
+  let d2 = today.getDate();
+  let m2 = today.getMonth() + 1;
+  let y2 = today.getFullYear();
 
-  let years, months, days;
+  let d3, m3, y3;
 
-  years = currentYear - birthYear;
+  y3 = y2 - y1;
 
-  if (currentMonth >= birthMonth) {
-    months = currentMonth - birthMonth;
+  if (m2 >= m1) {
+    m3 = m2 - m1;
   } else {
-    years--;
-    months = 12 + currentMonth - birthMonth;
+    y3--;
+    m3 = 12 + m2 - m1;
   }
 
-  if (currentDay >= birthDay) {
-    days = currentDay - birthDay;
+  if (d2 >= d1) {
+    d3 = d2 - d1;
   } else {
-    months--;
-    days = getDaysInMonth(birthYear, birthMonth) + currentDay - birthDay;
+    m3 --;
+    d3 = getDaysInMonth(y1,m1) + d2 - d1;
   }
 
-  if (months < 0) {
-    months = 11;
-    years--;
+  if (m3 < 0) {
+    m3 = 11;
+    y3--;
   }
 
-  yourAge.innerHTML = `You are <span>${years}</span> years, <span>${months}</span> months and <span>${days}</span> days.`;
-}
-
-function getDaysInMonth(year, month) {
-  return new Date(year, month, 0).getDate();
+  yourAge.innerHTML = `You are <span>${y3}</span> years, <span>${m3}</span> months and <span>${d3}</span> days.`
+  function getDaysInMonth(year, month) {
+    return new Date(year,month,0).getDate();
+  }
 }
