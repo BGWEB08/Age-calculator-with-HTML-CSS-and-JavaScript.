@@ -83,33 +83,6 @@ button {
     background-position: calc(100% - 10px);
 }
 
-/* Genel bir stil uygulaması */
-input[type="date"] {
-    appearance: none; /* Tarayıcı varsayılan stilini kaldırır */
-    -webkit-appearance: none; /* Safari ve Chrome için */
-    -moz-appearance: none; /* Firefox için */
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    color: #333;
-}
-
-/* Mobil cihazlar için bazı özel ayarlar */
-@media (max-width: 480px) {
-    input[type="date"] {
-        font-size: 14px;
-        padding: 8px;
-    }
-}
-
-/* Tüm platformlarda tutarlı bir görünüm için input'un genişliğini ayarla */
-input[type="date"] {
-    width: 100%;
-}
-
-
 #age  {
     font-size: 20px;
     margin-top: 20px;
