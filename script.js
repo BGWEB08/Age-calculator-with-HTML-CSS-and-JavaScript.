@@ -1,13 +1,24 @@
 let userInput = document.getElementById("date");
-userInput.max = new Date().toISOString().split("T")[0];
 let yourAge = document.getElementById("age");
 
 function calculateAge() {
-  let birthDate = new Date(userInput.value);
+  let birthDate = userInput.value;
+  
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(birthDate)) {
+    yourAge.innerHTML = "Please enter a valid date in YYYY-MM-DD format.";
+    return;
+  }
+  
+  let birthDateObj = new Date(birthDate);
 
-  let d1 = birthDate.getDate();
-  let m1 = birthDate.getMonth() + 1;
-  let y1 = birthDate.getFullYear();
+  if (isNaN(birthDateObj.getTime())) {
+    yourAge.innerHTML = "Invalid date. Please enter a valid date.";
+    return;
+  }
+
+  let d1 = birthDateObj.getDate();
+  let m1 = birthDateObj.getMonth() + 1;
+  let y1 = birthDateObj.getFullYear();
 
   let today = new Date();
 
@@ -29,8 +40,8 @@ function calculateAge() {
   if (d2 >= d1) {
     d3 = d2 - d1;
   } else {
-    m3 --;
-    d3 = getDaysInMonth(y1,m1) + d2 - d1;
+    m3--;
+    d3 = getDaysInMonth(y1, m1) + d2 - d1;
   }
 
   if (m3 < 0) {
@@ -38,8 +49,9 @@ function calculateAge() {
     y3--;
   }
 
-  yourAge.innerHTML = `You are <span>${y3}</span> years, <span>${m3}</span> months and <span>${d3}</span> days.`
+  yourAge.innerHTML = `You are <span>${y3}</span> years, <span>${m3}</span> months and <span>${d3}</span> days.`;
+
   function getDaysInMonth(year, month) {
-    return new Date(year,month,0).getDate();
+    return new Date(year, month, 0).getDate();
   }
 }
