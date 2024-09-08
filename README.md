@@ -26,4 +26,4 @@ This project is a simple Age Calculator that allows users to enter their birth d
 
 ## Demo
 
-![Age Calculator Image](https://github.com/YourUsername/YourRepoName/raw/main/images/age-calculator-demo.png)
+![Age Calculator Image](https://github.com/BGWEB08/README.md-IMAGES/blob/main/JavaScript%20Trials/Age%20Calculator/agecalculator-img.png?raw=true)
